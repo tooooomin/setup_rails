@@ -27,6 +27,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'overcommit'
   gem 'webpacker'
+  gem 'foreman'
 end
 
 group :test do

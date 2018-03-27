@@ -26,6 +26,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
   gem 'overcommit'
+  gem 'webpacker'
+  gem 'foreman'
 end
 
 group :test do

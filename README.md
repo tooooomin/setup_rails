@@ -17,3 +17,16 @@ bin/rails db:setup
 ```shell
 bundle exec rspec
 ```
+
+### Start local servers
+
+```shell
+bundle exec foreman start
+=> You should access http://localhost:5000/
+
+or
+
+(on different tabs)
+bin/rails server
+bin/webpack-dev-server
+```

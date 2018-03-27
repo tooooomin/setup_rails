@@ -28,6 +28,7 @@ group :development do
   gem 'overcommit'
   gem 'webpacker'
   gem 'foreman'
+  gem 'scss_lint', require: false
 end
 
 group :test do

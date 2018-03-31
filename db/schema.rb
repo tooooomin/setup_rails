@@ -10,30 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329160811) do
+ActiveRecord::Schema.define(version: 20180331132928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "developers", force: :cascade do |t|
-    t.string   "email",      null: false
+  create_table "developer_programming_languages", force: :cascade do |t|
+    t.bigint "developer_id"
+    t.bigint "programming_language_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_developers_on_email", unique: true, using: :btree
+    t.index ["developer_id", "programming_language_id"], name: "index_dev_prog_lang_on_dev_id_and_prog_lang_id", unique: true
+    t.index ["developer_id"], name: "index_developer_programming_languages_on_developer_id"
+    t.index ["programming_language_id"], name: "prog_lang"
   end
 
-  create_table "languages", force: :cascade do |t|
-    t.string   "code",       null: false
+  create_table "developers", id: :serial, force: :cascade do |t|
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["code"], name: "index_languages_on_code", unique: true, using: :btree
+    t.index ["email"], name: "index_developers_on_email", unique: true
   end
 
-  create_table "programming_languages", force: :cascade do |t|
-    t.string   "name",       null: false
+  create_table "languages", id: :serial, force: :cascade do |t|
+    t.string "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_programming_languages_on_name", unique: true, using: :btree
+    t.index ["code"], name: "index_languages_on_code", unique: true
   end
 
+  create_table "programming_languages", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_programming_languages_on_name", unique: true
+  end
+
+  add_foreign_key "developer_programming_languages", "developers"
+  add_foreign_key "developer_programming_languages", "programming_languages"
 end

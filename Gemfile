@@ -10,7 +10,7 @@ end
 gem 'factory_bot_rails'
 gem 'pg', '~> 0.18', '< 2.0'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.0.6'
+gem 'rails', '~> 5.1.5'
 gem 'rspec-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'

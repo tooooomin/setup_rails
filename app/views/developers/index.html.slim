@@ -12,6 +12,8 @@ table
     - @developers.each do |developer|
       tr
         td = developer.email
+        - developer.languages do |language|
+          td = language.code
         td = link_to 'Show', developer
         td = link_to 'Edit', edit_developer_path(developer)
         td = link_to 'Destroy', developer, data: { confirm: 'Are you sure?' }, method: :delete

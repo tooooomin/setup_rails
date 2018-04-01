@@ -4,16 +4,23 @@ table
   thead
     tr
       th Email
+      th Language
+      th Programming Language
       th
       th
       th
 
   tbody
     - @developers.each do |developer|
+
       tr
         td = developer.email
-        - developer.languages do |language|
-          td = language.code
+        td
+          - developer.languages.each do |language|
+            = language.code + ' '
+        td
+          - developer.programming_languages.each do |programming_language|
+            = programming_language.name + ' '
         td = link_to 'Show', developer
         td = link_to 'Edit', edit_developer_path(developer)
         td = link_to 'Destroy', developer, data: { confirm: 'Are you sure?' }, method: :delete

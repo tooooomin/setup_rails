@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :programming_language do
-    name "MyString"
+    programming_language { Faker::ProgrammingLanguage.name }
   end
 end

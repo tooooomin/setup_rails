@@ -15,6 +15,7 @@ gem 'rspec-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
+gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platform: %i[mri mingw x64_mingw]
@@ -28,7 +29,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
   gem 'overcommit'
-  gem 'webpacker'
   gem 'foreman'
   gem 'scss_lint', require: false
 end

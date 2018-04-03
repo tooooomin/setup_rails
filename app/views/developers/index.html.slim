@@ -3,18 +3,23 @@ h1 Listing developers
 table
   thead
     tr
-      th Email
-      th
-      th
-      th
+      th email
+      th programming_languages
+      th languages
 
   tbody
     - @developers.each do |developer|
       tr
         td = developer.email
-        td = link_to 'Show', developer
-        td = link_to 'Edit', edit_developer_path(developer)
-        td = link_to 'Destroy', developer, data: { confirm: 'Are you sure?' }, method: :delete
+        td
+          - developer.programming_languages.each do |programming_language|
+            = programming_language.name + ' '
+        td
+          - developer.languages.each do |language|
+            = language.code + ' '
+        / td = link_to 'Show', developer
+        / td = link_to 'Edit', edit_developer_path(developer)
+        / td = link_to 'Destroy', developer, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 

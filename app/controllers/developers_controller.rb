@@ -3,7 +3,7 @@ class DevelopersController < ApplicationController
 
   # GET /developers
   def index
-    @developers = Developer.all
+    @developers = Developer.all.includes(:languages, :programming_languages)
   end
 
   # GET /developers/1
@@ -53,6 +53,6 @@ class DevelopersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def developer_params
-      params.require(:developer).permit(:email)
+      params.require(:developer).permit(:email, language_ids: [], programming_language_ids: [])
     end
 end

@@ -8,5 +8,16 @@
 
   .field
     = f.label :email
+    br
     = f.text_field :email
+    br
+    = f.label :language
+    br
+    = f.collection_check_boxes :language_ids, Language.all, :id, :code do |t|
+      = t.label {t.check_box + t.text}
+    br
+    = f.label :programming_languages
+    br
+    = f.collection_check_boxes :programming_language_ids, ProgrammingLanguage.all, :id, :name do |t|
+      = t.label {t.check_box + t.text}
   .actions = f.submit

@@ -1,5 +1,9 @@
 h1 Listing developers
 
+= form_for @developers_search_form, url: developers_path, method: :get do |f|
+  = f.select :programming_language_id, ProgrammingLanguage.pluck(:name, :id)
+  = f.submit 'Search'
+
 table
   thead
     tr

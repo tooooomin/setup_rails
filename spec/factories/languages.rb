@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :language do
-    language { Faker::Language.code }
+    code { Faker::Address.country_code }
   end
 end

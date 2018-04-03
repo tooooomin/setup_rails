@@ -1,0 +1,3 @@
+class DevelopersSearchForm
+
+end

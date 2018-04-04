@@ -23,6 +23,7 @@ group :development, :test do
   gem 'byebug', platform: %i[mri mingw x64_mingw]
   gem 'bundler-audit', require: false
   gem 'brakeman', require: false
+  gem 'faker'
 end
 
 group :development do

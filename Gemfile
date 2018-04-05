@@ -17,6 +17,7 @@ gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 gem 'virtus'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'pry-rails'

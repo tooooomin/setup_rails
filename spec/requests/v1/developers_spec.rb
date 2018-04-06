@@ -10,8 +10,10 @@ RSpec.describe 'API::V1::DevelopersController', type: :request do
         {
           data: @developer.programming_languages.map do |programming_language|
               {
-                id: programming_language.id.to_s,
-                type: 'programming_languages'
+                id: programming_language.id,
+                name: programming_language.name,
+                created_at: programming_language.created_at.as_json,
+                updated_at: programming_language.updated_at.as_json
               }
           end
         }
@@ -20,8 +22,10 @@ RSpec.describe 'API::V1::DevelopersController', type: :request do
         {
           data: @developer.languages.map do |language|
             {
-              id: language.id.to_s,
-              type: 'languages'
+              id: language.id,
+              code: language.code,
+              created_at: language.created_at.as_json,
+              updated_at: language.updated_at.as_json
             }
           end
         }

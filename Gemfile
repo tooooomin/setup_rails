@@ -17,12 +17,14 @@ gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 gem 'virtus'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug', platform: %i[mri mingw x64_mingw]
   gem 'bundler-audit', require: false
   gem 'brakeman', require: false
+  gem 'faker'
 end
 
 group :development do

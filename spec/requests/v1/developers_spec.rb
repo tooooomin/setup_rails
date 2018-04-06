@@ -56,13 +56,13 @@ RSpec.describe 'API::V1::DevelopersController', type: :request do
       it_behaves_like 'http_status_code_200_with_json'
     end
 
-    # context 'when the developer does not exist' do
-    #   before do
-    #     get "/api/v1/developers/non_existing_developer_id"
-    #   end
-    #
-    #   it_behaves_like 'http_status_code_404'
-    # end
+    context 'when the developer does not exist' do
+      before do
+        get "/api/v1/developers/non_existing_developer_id"
+      end
+
+      it_behaves_like 'http_status_code_404'
+    end
 
   end
 end

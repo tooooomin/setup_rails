@@ -17,12 +17,8 @@ table
       tr
         td = developer.email
         td
-          - developer.programming_languages.each do |programming_language|
-            = programming_language.name + ', '
+          = developer.programming_languages.pluck(:name).join(', ')
         td
-          - developer.languages.each do |language|
-            = language.code + ', '
-
-br
+          = developer.languages.pluck(:code).join(', ')
 
 = link_to 'New Developer', new_developer_path

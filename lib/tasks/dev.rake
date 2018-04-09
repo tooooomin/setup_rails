@@ -2,18 +2,16 @@ namespace :dev do
   require 'factory_bot_rails'
   require 'faker'
 
-  desc 'Generate 100 developer record'
+  desc 'Generate args developer records'
   task :generate_data, [:developers_num] => :environment do |_, args|
     set_args(args)
 
-    %w(ruby php java react).each { |name|
-      next name if ProgrammingLanguage.exists?(name: name)
-      FactoryBot.create(:programming_language, name: name)
+    %w[ruby php java react].each { |name|
+      FactoryBot.find_or_create_by(:programming_language, name: name)
     }
 
-    %w(jp vn en).each { |code|
-      next code if Language.exists?(code: code)
-      FactoryBot.create(:language, code: code)
+    %w[jp vn en].each { |code|
+      FactoryBot.find_or_create_by(:language, code: code)
     }
 
     programming_languages = ProgrammingLanguage.all

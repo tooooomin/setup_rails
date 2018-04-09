@@ -1,21 +1,24 @@
 h1 Listing developers
 
+= form_for @developers_search_form, url: developers_path, method: :get do |f|
+  = f.select :programming_language_id, ProgrammingLanguage.pluck(:name, :id), { prompt: 'select programing language' }
+  = f.select :language_id, Language.pluck(:code, :id), { prompt: 'select language' }
+  = f.submit 'Search'
+
 table
   thead
     tr
       th Email
-      th
-      th
-      th
+      th programming_languages
+      th languages
 
   tbody
     - @developers.each do |developer|
       tr
         td = developer.email
-        td = link_to 'Show', developer
-        td = link_to 'Edit', edit_developer_path(developer)
-        td = link_to 'Destroy', developer, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
+        td
+          = developer.programming_languages.pluck(:name).join(', ')
+        td
+          = developer.languages.pluck(:code).join(', ')
 
 = link_to 'New Developer', new_developer_path

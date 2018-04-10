@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Developer < ApplicationRecord
   has_many :developer_languages, dependent: :destroy
   has_many :languages, through: :developer_languages
